@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skibidi AIO</title>
+    <title>Twitch AIO</title>
     <style>
         body {
             margin: 0;
@@ -36,7 +36,7 @@
             height: 5px;
             background-color: white;
             border-radius: 50%;
-            animation: move 5s linear infinite;
+            animation: move 10s linear infinite;
         }
 
         @keyframes move {
@@ -45,7 +45,7 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(-150vh) translateX(-50vw);
+                transform: translateY(-200vh) translateX(-100vw);
                 opacity: 0;
             }
         }
@@ -62,7 +62,7 @@
         }
 
         video {
-            width: 60%;
+            width: 50%;
             margin: 40px 0;
             border: 2px solid white;
             border-radius: 10px;
@@ -108,16 +108,17 @@
 <body>
     <div class="background">
         <script>
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 200; i++) {
                 let dot = document.createElement('div');
                 dot.className = 'dot';
                 dot.style.left = Math.random() * 100 + 'vw';
-                dot.style.animationDuration = 5 + Math.random() * 5 + 's';
+                dot.style.top = Math.random() * 100 + 'vh';
+                dot.style.animationDuration = 10 + Math.random() * 10 + 's';
                 document.querySelector('.background').appendChild(dot);
             }
         </script>
     </div>
-    <h1>Skibidi AIO</h1>
+    <h1>Twitch AIO</h1>
     <h2>The Ultimate All-In-One Solution</h2>
     <video controls>
         <source src="proof.mp4" type="video/mp4">
