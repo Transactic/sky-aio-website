@@ -18,10 +18,11 @@
             justify-content: center;
             text-align: center;
             overflow-x: hidden;
+            position: relative;
         }
 
         .background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -35,7 +36,6 @@
             height: 6px;
             background-color: white;
             border-radius: 50%;
-            transition: transform 0.3s ease;
         }
 
         h1 {
@@ -132,24 +132,6 @@
                 dot.style.animationDuration = 20 + Math.random() * 10 + 's';
                 document.querySelector('.background').appendChild(dot);
                 dots.push(dot);
-
-                dot.moveDirection = {
-                    x: (Math.random() - 0.5) * 2,
-                    y: (Math.random() - 0.5) * 2
-                };
-
-                setInterval(() => {
-                    let rect = dot.getBoundingClientRect();
-                    if (rect.left <= 0 || rect.right >= window.innerWidth) {
-                        dot.moveDirection.x *= -1;
-                    }
-                    if (rect.top <= 0 || rect.bottom >= window.innerHeight) {
-                        dot.moveDirection.y *= -1;
-                    }
-
-                    dot.style.left = rect.left + dot.moveDirection.x + 'px';
-                    dot.style.top = rect.top + dot.moveDirection.y + 'px';
-                }, 20);
             }
         </script>
     </div>
