@@ -15,9 +15,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .background {
@@ -27,7 +26,6 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
         }
 
         .dot {
@@ -64,10 +62,36 @@
 
         video {
             width: 50%;
-            margin: 30px 0;
+            margin: 20px 0;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .features {
+            margin: 20px 0;
+            padding: 0;
+            list-style-type: none;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
+        .features li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .features li::before {
+            content: '✔';
+            color: #00FF00;
+            margin-right: 10px;
+        }
+
+        .features .disabled::before {
+            content: '⛔';
+            color: #FF0000;
         }
 
         .button-container {
@@ -139,8 +163,20 @@
     </div>
     <h1>Twitch AIO</h1>
     <h2>The Ultimate All-In-One Solution</h2>
+    <ul class="features">
+        <li>Follow Bot ✔</li>
+        <li>ViewBot ✔</li>
+        <li>Checker ✔</li>
+        <li>Generator ✔</li>
+        <li>Spammer ⛔</li>
+    </ul>
     <video controls>
         <source src="proof.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2>How to Use</h2>
+    <video controls>
+        <source src="tut.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <div class="button-container">
