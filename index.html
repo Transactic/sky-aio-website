@@ -34,17 +34,7 @@
             height: 6px;
             background-color: white;
             border-radius: 50%;
-            animation: float 20s linear infinite;
             transition: transform 0.3s ease;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(10px);
-            }
         }
 
         h1 {
@@ -142,7 +132,8 @@
 <body>
     <div class="background">
         <script>
-            // Create interactive stars
+            // Create interactive stars with movement
+            let dots = [];
             for (let i = 0; i < 200; i++) {
                 let dot = document.createElement('div');
                 dot.className = 'dot';
@@ -150,21 +141,42 @@
                 dot.style.top = Math.random() * 100 + 'vh';
                 dot.style.animationDuration = 20 + Math.random() * 10 + 's';
                 document.querySelector('.background').appendChild(dot);
+                dots.push(dot);
 
-                // Add cursor interaction
-                dot.addEventListener('mousemove', (e) => {
+                // Set random initial movement direction
+                dot.moveDirection = {
+                    x: (Math.random() - 0.5) * 2, // Random horizontal direction
+                    y: (Math.random() - 0.5) * 2  // Random vertical direction
+                };
+
+                // Move the dots in their initial direction
+                setInterval(() => {
+                    let rect = dot.getBoundingClientRect();
+                    // Bounce the stars within the window
+                    if (rect.left <= 0 || rect.right >= window.innerWidth) {
+                        dot.moveDirection.x *= -1; // Reverse horizontal movement
+                    }
+                    if (rect.top <= 0 || rect.bottom >= window.innerHeight) {
+                        dot.moveDirection.y *= -1; // Reverse vertical movement
+                    }
+
+                    dot.style.left = rect.left + dot.moveDirection.x + 'px';
+                    dot.style.top = rect.top + dot.moveDirection.y + 'px';
+                }, 20);
+            }
+
+            // Add cursor interaction with the stars
+            document.body.addEventListener('mousemove', (e) => {
+                dots.forEach(dot => {
                     const rect = dot.getBoundingClientRect();
                     const x = e.clientX - (rect.left + rect.width / 2);
                     const y = e.clientY - (rect.top + rect.height / 2);
                     dot.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
                 });
-
-                dot.addEventListener('mouseleave', () => {
-                    dot.style.transform = 'translate(0, 0)';
-                });
-            }
+            });
         </script>
     </div>
+
     <h1>Twitch AIO</h1>
     <h2>The Ultimate All-In-One Solution</h2>
     
@@ -193,7 +205,6 @@
     
     <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <!-- Buttons Container -->
     <div class="button-container">
         <a href="https://discord.gg/skyfollows" class="button discord">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Discord_logo.svg" alt="Discord Logo">
