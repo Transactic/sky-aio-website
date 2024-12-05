@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
             height: 100vh;
             overflow: hidden;
@@ -67,11 +67,6 @@
             justify-content: center;
         }
 
-        .features .disabled::before {
-            content: '⛔';
-            color: #FF0000;
-        }
-
         .button-container {
             margin-top: 20px;
             display: flex;
@@ -98,7 +93,7 @@
         .button:hover {
             transform: scale(1.1);
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
-            background: rgba(0, 0, 0, 0.6); /* Grey overlay on hover */
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .discord {
@@ -134,25 +129,23 @@
                 document.querySelector('.background').appendChild(dot);
                 dots.push(dot);
 
-                // Slow movement for the stars
                 dot.moveDirection = {
-                    x: (Math.random() - 0.5) * 0.5, // Slower horizontal movement
-                    y: (Math.random() - 0.5) * 0.5  // Slower vertical movement
+                    x: (Math.random() - 0.5) * 0.5,
+                    y: (Math.random() - 0.5) * 0.5
                 };
 
-                // Update the stars' positions slowly
                 setInterval(() => {
                     let rect = dot.getBoundingClientRect();
                     if (rect.left <= 0 || rect.right >= window.innerWidth) {
-                        dot.moveDirection.x *= -1; // Reverse horizontal movement
+                        dot.moveDirection.x *= -1;
                     }
                     if (rect.top <= 0 || rect.bottom >= window.innerHeight) {
-                        dot.moveDirection.y *= -1; // Reverse vertical movement
+                        dot.moveDirection.y *= -1;
                     }
 
                     dot.style.left = rect.left + dot.moveDirection.x + 'px';
                     dot.style.top = rect.top + dot.moveDirection.y + 'px';
-                }, 50); // Slow down the star movement
+                }, 50);
             }
         </script>
     </div>
@@ -162,11 +155,11 @@
     
     <div class="features-container">
         <ul class="features">
-            <li>Follow Bot ✅</li>
-            <li>ViewBot ✅</li>
-            <li>Checker ✅</li>
-            <li>Generator ✅</li>
-            <li>Spammer ❌</li>
+            <li>Follow Bot</li>
+            <li>ViewBot</li>
+            <li>Checker</li>
+            <li>Generator</li>
+            <li>Spammer</li>
         </ul>
     </div>
 
