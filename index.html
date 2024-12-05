@@ -165,13 +165,14 @@
                 }, 20);
             }
 
-            // Add cursor interaction with the stars
+            // Add cursor interaction with the stars: stars move away from the cursor
             document.body.addEventListener('mousemove', (e) => {
                 dots.forEach(dot => {
                     const rect = dot.getBoundingClientRect();
                     const x = e.clientX - (rect.left + rect.width / 2);
                     const y = e.clientY - (rect.top + rect.height / 2);
-                    dot.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                    // Move stars away from the cursor
+                    dot.style.transform = `translate(${-x * 0.3}px, ${-y * 0.3}px)`;
                 });
             });
         </script>
@@ -205,13 +206,16 @@
     
     <script src="https://player.vimeo.com/api/player.js"></script>
 
+    <!-- Buttons Container -->
     <div class="button-container">
         <a href="https://discord.gg/skyfollows" class="button discord">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Discord_logo.svg" alt="Discord Logo">
+            <!-- Replace with the uploaded Discord logo URL -->
+            <img src="https://i.imgur.com/your-uploaded-discord-logo.png" alt="Discord Logo">
             Discord
         </a>
         <a href="https://discord.gg/skyfollows" class="button sellix">
-            <img src="https://cdn.sellix.io/static/logo/128.png" alt="Sellix Logo">
+            <!-- Replace with the uploaded Sellix logo URL -->
+            <img src="https://i.imgur.com/your-uploaded-sellix-logo.png" alt="Sellix Logo">
             Sellix
         </a>
     </div>
