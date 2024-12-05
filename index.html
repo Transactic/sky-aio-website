@@ -130,12 +130,16 @@
                 dots.push(dot);
 
                 dot.moveDirection = {
-                    x: (Math.random() - 0.5) * 0.5,
+                    x: (Math.random() - 0.5) * 0.5, // Speed and random direction
                     y: (Math.random() - 0.5) * 0.5
                 };
 
+                dot.speed = Math.random() * 0.5 + 0.2; // Randomize speed for each dot
+
                 setInterval(() => {
                     let rect = dot.getBoundingClientRect();
+
+                    // Keep the stars inside the viewport
                     if (rect.left <= 0 || rect.right >= window.innerWidth) {
                         dot.moveDirection.x *= -1;
                     }
@@ -143,9 +147,10 @@
                         dot.moveDirection.y *= -1;
                     }
 
-                    dot.style.left = rect.left + dot.moveDirection.x + 'px';
-                    dot.style.top = rect.top + dot.moveDirection.y + 'px';
-                }, 50);
+                    // Move the dots with randomized speed and direction
+                    dot.style.left = rect.left + dot.moveDirection.x * dot.speed + 'px';
+                    dot.style.top = rect.top + dot.moveDirection.y * dot.speed + 'px';
+                }, 20);
             }
         </script>
     </div>
