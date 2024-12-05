@@ -125,6 +125,18 @@
         .sellix {
             background-color: #AA00FF;
         }
+
+        .video-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+
+        .features-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 <body>
@@ -155,25 +167,33 @@
     </div>
     <h1>Twitch AIO</h1>
     <h2>The Ultimate All-In-One Solution</h2>
-    <ul class="features">
-        <li>Follow Bot ✔</li>
-        <li>ViewBot ✔</li>
-        <li>Checker ✔</li>
-        <li>Generator ✔</li>
-        <li>Spammer ⛔</li>
-    </ul>
     
-    <!-- Main Vimeo Video Embed (Responsive) -->
-    <h2>Preview</h2>
-    <div style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/1036336008?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                frameborder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                title="Twitch AIO Preview"></iframe>
+    <!-- Features List -->
+    <div class="features-container">
+        <ul class="features">
+            <li>Follow Bot ✔</li>
+            <li>ViewBot ✔</li>
+            <li>Checker ✔</li>
+            <li>Generator ✔</li>
+            <li>Spammer ⛔</li>
+        </ul>
     </div>
+
+    <!-- Main Vimeo Video Embed (Responsive) -->
+    <div class="video-container">
+        <h2>Preview</h2>
+        <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/1036336008?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                    title="Twitch AIO Preview"></iframe>
+        </div>
+    </div>
+    
     <script src="https://player.vimeo.com/api/player.js"></script>
 
+    <!-- Buttons Container -->
     <div class="button-container">
         <a href="https://discord.gg/skyfollows" class="button discord">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Discord_logo.svg" alt="Discord Logo">
