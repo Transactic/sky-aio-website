@@ -21,6 +21,14 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
+            transform: scale(0.9);
+            transform-origin: top center;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                transform: scale(0.8);
+            }
         }
 
         .background {
@@ -39,7 +47,7 @@
             height: 6px;
             background-color: white;
             border-radius: 50%;
-            animation: float 3s infinite ease-in-out;
+            animation: float 3s infinite linear;
         }
 
         @keyframes float {
@@ -183,7 +191,7 @@
     <div class="features-container">
         <div class="feature-card">
             <h3>Follow Bot</h3>
-            <p>✅ Instantly get any ammount of followers</p>
+            <p>✅ Instantly get any amount of followers</p>
         </div>
         <div class="feature-card">
             <h3>ViewBot</h3>
@@ -191,7 +199,7 @@
         </div>
         <div class="feature-card">
             <h3>Checker</h3>
-            <p>✅ Check any users Stats</p>
+            <p>✅ Check any user's stats</p>
         </div>
         <div class="feature-card">
             <h3>Generator</h3>
