@@ -15,16 +15,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
             height: 100vh;
             overflow: hidden;
             position: relative;
-            box-sizing: border-box;
         }
 
         .background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -36,26 +35,25 @@
             position: absolute;
             width: 6px;
             height: 6px;
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: white;
             border-radius: 50%;
         }
 
         h1 {
-            margin-top: 20px;
+            margin-top: 10px;
             font-size: 3rem;
             font-weight: bold;
             text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-            color: white;
         }
 
         h2 {
             margin: 10px 0 40px;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #CCCCCC;
         }
 
         .features {
-            margin: 20px 0;
+            margin: 10px 0;
             padding: 0;
             list-style-type: none;
             font-size: 1.2rem;
@@ -63,7 +61,7 @@
         }
 
         .features li {
-            margin: 15px 0;
+            margin: 10px 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -73,7 +71,7 @@
             margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
         }
 
         .button {
@@ -107,33 +105,55 @@
         }
 
         .video-container {
-            width: 80%;
+            width: 60%;
             max-width: 600px;
             margin: 20px 0;
         }
 
         .features-container {
-            max-width: 600px;
-            margin: 20px 0;
-        }
-        
-        /* Center the content in a more neat and spaced manner */
-        .content {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
+            border-radius: 10px;
+            z-index: 999;
+            color: white;
+            width: 300px;
+            text-align: center;
         }
-        
-        .content h1, .content h2 {
-            margin-bottom: 10px;
+
+        .admin-button {
+            background: #FF33A1;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
+
+        .admin-button:hover {
+            background-color: #FF66B2;
+        }
+
     </style>
 </head>
 <body>
     <div class="background">
         <script>
             let dots = [];
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 200; i++) {
                 let dot = document.createElement('div');
                 dot.className = 'dot';
                 dot.style.left = Math.random() * 100 + 'vw';
@@ -142,15 +162,12 @@
                 dots.push(dot);
 
                 dot.moveDirection = {
-                    x: (Math.random() - 0.5) * 0.5, 
+                    x: (Math.random() - 0.5) * 0.5,
                     y: (Math.random() - 0.5) * 0.5
                 };
 
-                dot.speed = Math.random() * 0.5 + 0.2;
-
                 setInterval(() => {
                     let rect = dot.getBoundingClientRect();
-
                     if (rect.left <= 0 || rect.right >= window.innerWidth) {
                         dot.moveDirection.x *= -1;
                     }
@@ -158,44 +175,78 @@
                         dot.moveDirection.y *= -1;
                     }
 
-                    dot.style.left = rect.left + dot.moveDirection.x * dot.speed + 'px';
-                    dot.style.top = rect.top + dot.moveDirection.y * dot.speed + 'px';
-                }, 20);
+                    dot.style.left = rect.left + dot.moveDirection.x + 'px';
+                    dot.style.top = rect.top + dot.moveDirection.y + 'px';
+                }, 50);
+            }
+
+            // Admin Panel Functionality
+            let adminPanelVisible = false;
+
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.altKey && e.key === 'g') {
+                    adminPanelVisible = !adminPanelVisible;
+                    document.getElementById('admin-panel').style.display = adminPanelVisible ? 'block' : 'none';
+                }
+            });
+
+            function editWebsite() {
+                alert('Editing website... (This would trigger editing functionality)');
+            }
+
+            function killWebsite() {
+                alert('Killing website... (This would stop all services)');
+                window.location.href = 'about:blank'; // Simulate killing the website
+            }
+
+            function stopRedirects() {
+                alert('Stopping redirects...');
+                // You can disable any setTimeout or setInterval that causes redirects here
             }
         </script>
     </div>
 
-    <div class="content">
-        <h1>Twitch AIO</h1>
-        <h2>The Ultimate All-In-One Solution</h2>
+    <h1>Twitch AIO</h1>
+    <h2>The Ultimate All-In-One Solution</h2>
 
-        <div class="features-container">
-            <ul class="features">
-                <li>Follow Bot ✅</li>
-                <li>ViewBot ✅</li>
-                <li>Checker ✅</li>
-                <li>Generator ✅</li>
-                <li>Spammer ❌</li>
-            </ul>
-        </div>
+    <div class="features-container">
+        <ul class="features">
+            <li>Follow Bot ✅</li>
+            <li>ViewBot ✅</li>
+            <li>Checker ✅</li>
+            <li>Generator ✅</li>
+            <li>Spammer ❌</li>
+        </ul>
+    </div>
 
-        <div class="video-container">
-            <h2>Preview</h2>
-            <div style="padding:56.25% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/1036336008?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                        title="Twitch AIO Preview"></iframe>
-            </div>
-        </div>
-
-        <div class="button-container">
-            <a href="https://discord.gg/skyfollows" class="button discord">Discord</a>
-            <a href="https://discord.gg/skyfollows" class="button sellix">Sellix</a>
+    <div class="video-container">
+        <h2>Preview</h2>
+        <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/1036336008?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                    title="Twitch AIO Preview"></iframe>
         </div>
     </div>
-    
+
     <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <div class="button-container">
+        <a href="https://discord.gg/skyfollows" class="button discord">
+            Discord
+        </a>
+        <a href="https://twitchaio.mysellauth.com/product/twitch-aio" class="button sellix">
+            Buy
+        </a>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel">
+        <h3>Admin Panel</h3>
+        <button class="admin-button" onclick="editWebsite()">Edit Website</button>
+        <button class="admin-button" onclick="killWebsite()">Kill Website</button>
+        <button class="admin-button" onclick="stopRedirects()">Stop Redirects</button>
+    </div>
 </body>
 </html>
