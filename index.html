@@ -1,3 +1,5 @@
+
+<!--Transactic11 pro bad coder -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,38 +117,6 @@
             margin: 0 auto;
         }
 
-        /* Admin Panel Styles */
-        .admin-panel {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 999;
-            color: white;
-            width: 300px;
-            text-align: center;
-        }
-
-        .admin-button {
-            background: #FF33A1;
-            border: none;
-            padding: 10px;
-            font-size: 18px;
-            color: white;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .admin-button:hover {
-            background-color: #FF66B2;
-        }
-
     </style>
 </head>
 <body>
@@ -179,36 +149,12 @@
                     dot.style.top = rect.top + dot.moveDirection.y + 'px';
                 }, 50);
             }
-
-            // Admin Panel Functionality
-            let adminPanelVisible = false;
-
-            document.addEventListener('keydown', (e) => {
-                if (e.ctrlKey && e.altKey && e.key === 'g') {
-                    adminPanelVisible = !adminPanelVisible;
-                    document.getElementById('admin-panel').style.display = adminPanelVisible ? 'block' : 'none';
-                }
-            });
-
-            function editWebsite() {
-                alert('Editing website... (This would trigger editing functionality)');
-            }
-
-            function killWebsite() {
-                alert('Killing website... (This would stop all services)');
-                window.location.href = 'about:blank'; // Simulate killing the website
-            }
-
-            function stopRedirects() {
-                alert('Stopping redirects...');
-                // You can disable any setTimeout or setInterval that causes redirects here
-            }
         </script>
     </div>
 
     <h1>Twitch AIO</h1>
     <h2>The Ultimate All-In-One Solution</h2>
-
+    
     <div class="features-container">
         <ul class="features">
             <li>Follow Bot ✅</li>
@@ -229,7 +175,7 @@
                     title="Twitch AIO Preview"></iframe>
         </div>
     </div>
-
+    
     <script src="https://player.vimeo.com/api/player.js"></script>
 
     <div class="button-container">
@@ -239,14 +185,6 @@
         <a href="https://twitchaio.mysellauth.com/product/twitch-aio" class="button sellix">
             Buy
         </a>
-    </div>
-
-    <!-- Admin Panel -->
-    <div id="admin-panel" class="admin-panel">
-        <h3>Admin Panel</h3>
-        <button class="admin-button" onclick="editWebsite()">Edit Website</button>
-        <button class="admin-button" onclick="killWebsite()">Kill Website</button>
-        <button class="admin-button" onclick="stopRedirects()">Stop Redirects</button>
     </div>
 </body>
 </html>
