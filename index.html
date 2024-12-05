@@ -36,17 +36,18 @@
             height: 5px;
             background-color: white;
             border-radius: 50%;
-            animation: move 10s linear infinite;
+            animation: move 20s linear infinite;
         }
 
         @keyframes move {
             0% {
-                transform: translateY(0) translateX(0);
-                opacity: 1;
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(10px, 10px);
             }
             100% {
-                transform: translateY(-200vh) translateX(-100vw);
-                opacity: 0;
+                transform: translate(0, 0);
             }
         }
 
@@ -113,7 +114,7 @@
                 dot.className = 'dot';
                 dot.style.left = Math.random() * 100 + 'vw';
                 dot.style.top = Math.random() * 100 + 'vh';
-                dot.style.animationDuration = 10 + Math.random() * 10 + 's';
+                dot.style.animationDuration = 20 + Math.random() * 10 + 's';
                 document.querySelector('.background').appendChild(dot);
             }
         </script>
